@@ -29,7 +29,11 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
         public IActionResult ConsultarVeiculo(ConsultarVeiculoRequest request)
         {
             if (request == null)
-                return BadRequest();
+            {
+                var retNull = new { menssagem = "Nao validar esse retorno" };
+                return new BadRequestObjectResult(retNull);
+            }
+
 
             if (request.placa == "AAA1234")
             {
@@ -107,7 +111,7 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                   orgaoAtuador = "DETRAN - RR",
                                   ano = DateTime.Now.AddYears(-1).Year.ToString(),
                                   dataVencimento= uteis.UltimoDiaDoMes(DateTime.Now.AddYears(-1)).ToString("dd/MM/yyyy"),
-                                  dataValidade= uteis.UltimoDiaDoMes().ToString("dd/MM/yyyy"),
+                                  dataValidade= uteis.UltimoDiaDoMesAtual().ToString("dd/MM/yyyy"),
                                   descricaoDebito= "Licenciamento Anual",
                                   valor= "142,18",
                                   valorCorrigido= "142,18",
@@ -121,8 +125,8 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                 debitoId = "2222222222",
                                 orgaoAtuador = "DETRAN - RR",
                                 ano = DateTime.Now.Year.ToString(),
-                                dataVencimento = uteis.UltimoDiaDoMes().ToString("dd/MM/yyyy"),
-                                dataValidade = uteis.UltimoDiaDoMes().ToString("dd/MM/yyyy"),
+                                dataVencimento = uteis.UltimoDiaDoMesAtual().ToString("dd/MM/yyyy"),
+                                dataValidade = uteis.UltimoDiaDoMesAtual().ToString("dd/MM/yyyy"),
                                 descricaoDebito = "Licenciamento Anual",
                                 valor = "111,27",
                                 valorCorrigido = "111,27",
@@ -146,8 +150,8 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                 debitoId= "99100223575255",
                                 orgaoAtuador= "PREFEITURA MUNICIPAL DE BOA VISTA - RR",
                                 ano= "0",
-                                dataVencimento= "02/05/2018",
-                                dataValidade= "31/10/2023",
+                                dataVencimento= uteis.QualquerDataDoAnoAnterior().ToString("dd/MM/yyyy"),
+                                dataValidade= uteis.UltimoDiaDoMesAtual().ToString("dd/MM/yyyy"),
                                 descricaoDebito= "Dirigir usando uma das maos",
                                 valor= "293,47",
                                 valorCorrigido= "407,07",
@@ -163,8 +167,8 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                 debitoId= "99100223575352",
                                 orgaoAtuador= "PREFEITURA MUNICIPAL DE BOA VISTA - RR",
                                 ano= "0",
-                                dataVencimento= "02/05/2018",
-                                dataValidade= "31/10/2023",
+                                dataVencimento= uteis.QualquerDataDoAnoAnterior().ToString("dd/MM/yyyy"),
+                                dataValidade= uteis.UltimoDiaDoMesAtual().ToString("dd/MM/yyyy"),
                                 descricaoDebito= "Dirigir usando uma das maos",
                                 valor= "293,47",
                                 valorCorrigido= "407,07",
@@ -183,8 +187,8 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                 debitoId= "99100223575450",
                                 orgaoAtuador= "PREFEITURA MUNICIPAL DE BOA VISTA - RR",
                                 ano= "0",
-                                dataVencimento= "16/10/2023",
-                                dataValidade= "16/10/2023",
+                                dataVencimento= uteis.QualquerDataDepoisDeHojeNoMesAtual().ToString("dd/MM/yyyy"),
+                                dataValidade= uteis.QualquerDataDepoisDeHojeNoMesAtual().ToString("dd/MM/yyyy"),
                                 descricaoDebito= "Avanco de sinal",
                                 valor= "293,47",
                                 valorCorrigido= "293,47",
@@ -200,8 +204,8 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                                 debitoId= "99100223575557",
                                 orgaoAtuador= "PREFEITURA MUNICIPAL DE BOA VISTA - RR",
                                 ano= "0",
-                                dataVencimento= "16/10/2023",
-                                dataValidade= "16/10/2023",
+                                dataVencimento= uteis.QualquerDataDepoisDeHojeNoMesAtual().ToString("dd/MM/yyyy"),
+                                dataValidade= uteis.QualquerDataDepoisDeHojeNoMesAtual().ToString("dd/MM/yyyy"),
                                 descricaoDebito= "Por excesso de velocidade",
                                 valor= "130,16",
                                 valorCorrigido= "130,16",
@@ -218,7 +222,7 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
                     {
                         parcelamentoMultas = new List<object>(),
                     },
-                    placa = "CCC1234",
+                    placa = "DDD1234",
                     ufPlaca = "SP",
                     renavam = "123456789",
                     marca = "UNO",
@@ -232,7 +236,9 @@ namespace ApiMockup.Controllers.ParceleDebitos.Integradores
 
             }
 
-            return BadRequest();
+            var retornoGenerico = new { menssagem = "Nao validar esse retorno" };
+            return new BadRequestObjectResult(retornoGenerico);
+
         }
 
 

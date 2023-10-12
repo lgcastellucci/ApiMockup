@@ -2,7 +2,7 @@
 {
     public class Uteis
     {
-        public DateTime UltimoDiaDoMes()
+        public DateTime UltimoDiaDoMesAtual()
         {
             return UltimoDiaDoMes(DateTime.Now);
         }
@@ -19,6 +19,27 @@
             var ultimoDia = new DateTime(ano, mes, ultimoDiaDoMes);
 
             return ultimoDia;
+        }
+
+        public DateTime QualquerDataDoAnoAnterior()
+        {
+            var dataReferencia = DateTime.Now.AddYears(-1);
+
+            var random = new Random();
+            int dia = random.Next(1, 28);
+            int mes = random.Next(1, 12);
+
+            return new DateTime(dataReferencia.Year, mes, dia);
+        }
+
+        public DateTime QualquerDataDepoisDeHojeNoMesAtual()
+        {
+            var dataAtual = DateTime.Now;
+
+            var random = new Random();
+            int dia = random.Next(dataAtual.Day + 1, 28);
+
+            return new DateTime(dataAtual.Year, dataAtual.Month, dia);
         }
     }
 }
