@@ -48,9 +48,27 @@ namespace ApiMockup
 
             public class Infracoes
             {
-                public List<object> vencidas { get; set; }
-                public List<object> avencer { get; set; }
-                public List<object> emAutuacao { get; set; }
+                public List<Infracao> vencidas { get; set; }
+                public List<Infracao> avencer { get; set; }
+                public List<Infracao> emAutuacao { get; set; }
+            }
+
+            public class Infracao
+            {
+                public string debitoId { get; set; }
+                public string orgaoAtuador { get; set; }
+                public string ano { get; set; }
+                public string dataVencimento { get; set; }
+                public string dataValidade { get; set; }
+                public string descricaoDebito { get; set; }
+                public string valor { get; set; }
+                public string valorCorrigido { get; set; }
+                public string valorDesconto { get; set; }
+                public string valorPago { get; set; }
+                public string valorDevido { get; set; }
+                public string codigoBarras { get; set; }
+                public string numeroAuto { get; set; }
+                public string codigoInfracao { get; set; }
             }
 
             public class Licenciamento
