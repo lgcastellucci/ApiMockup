@@ -1,6 +1,5 @@
-using System.Numerics;
 
-namespace ApiMockup
+namespace ApiMockup.Models
 {
     public class DetranRR
     {

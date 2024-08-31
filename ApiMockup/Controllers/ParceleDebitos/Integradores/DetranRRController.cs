@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Drawing;
-using static ApiMockup.DetranRR;
-using static ApiMockup.DetranRR.ConsultarVeiculoComDebitosResponse;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using static ApiMockup.Models.DetranRR;
+using static ApiMockup.Models.DetranRR.ConsultarVeiculoComDebitosResponse;
+
 
 namespace ApiMockup.Controllers.ParceleDebitos.Integradores
 {
