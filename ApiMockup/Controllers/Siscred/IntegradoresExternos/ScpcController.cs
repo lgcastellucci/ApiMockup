@@ -25,7 +25,7 @@ namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
             resposta += "		<S-CODIGO>150</S-CODIGO>";
             resposta += "		<S-CONSULTA>353</S-CONSULTA>";
             resposta += "		<S-SOLICITANTE/>";
-            resposta += "		<S-CPF>12345678909</S-CPF>";
+            resposta += "		<S-CPF>" + parametro.SOLICITACAO.SCPF + "</S-CPF>";
             resposta += "		<S-DDD-1>19</S-DDD-1>";
             resposta += "		<S-TELEFONE-1>99990000</S-TELEFONE-1>";
             resposta += "		<S-CEP>0</S-CEP>";
@@ -116,7 +116,7 @@ namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
             resposta += "				<TAMANHOREGISTRO>366</TAMANHOREGISTRO>";
             resposta += "				<TIPOREGISTRO>500</TIPOREGISTRO>";
             resposta += "				<REGISTRO>S</REGISTRO>";
-            resposta += "				<DOCUMENTO>12345678909</DOCUMENTO>";
+            resposta += "				<DOCUMENTO>" + parametro.SOLICITACAO.SCPF + "</DOCUMENTO>";
             resposta += "				<NOME>LUIS SOUZA</NOME>";
             resposta += "				<NOMEMAE>MARIA SOUZA</NOMEMAE>";
             resposta += "				<DATANASCIMENTO>01/01/1980</DATANASCIMENTO>";
@@ -224,6 +224,6 @@ namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
             return response;
         }
 
- 
+
     }
 }
