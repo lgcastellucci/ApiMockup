@@ -1,6 +1,4 @@
-﻿using ApiMockup.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Xml;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Xml.Serialization;
 using static ApiMockup.Models.IntegradorExternoSCPC;
 
