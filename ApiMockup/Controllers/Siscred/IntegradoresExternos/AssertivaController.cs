@@ -188,7 +188,7 @@ namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
 
             response.success = true;
             response.status = "200";
-            //response.data.partes.Add(new RespostaVerificacaoFacial.Data.Parte() { id = Guid.NewGuid().ToString().Substring(0, 6), protocolo = Guid.NewGuid().ToString(),status = "APROVADO" });
+            response.data.partes.Add(new RespostaVerificacaoFacial.DataRespostaVerificacaoFacial.ParteRespostaVerificacaoFacial() { id = Guid.NewGuid().ToString().Substring(0, 6), protocolo = Guid.NewGuid().ToString(),status = "APROVADO" });
 
             return response;
         }
