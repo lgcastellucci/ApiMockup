@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
-using System.Text.Json.Nodes;
-using static ApiMockup.Controllers.Siscred.IntegradoresExternos.IntegradoresExternosController.RespostaObterLink;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
 {
@@ -125,6 +122,112 @@ namespace ApiMockup.Controllers.Siscred.IntegradoresExternos
                 data = new DetalhesObterLink();
             }
         }
+
+
+        [HttpGet]
+        [Route("assertiva/autentica/v1/jornadas/partes/obter-partes-pedido")]
+        /// <summary>
+        /// Obtém partes para a jornada
+        /// </summary>
+        /// param name="pedidoID">Pedido ID</param>
+        public RespostaObterPartes ObterPartes(string pedidoID)
+        {
+            var response = new RespostaObterPartes();
+
+            response.success = true;
+            response.status = "200";
+            response.data.partes.Add(new RespostaObterPartes.Data.Parte() { id = Guid.NewGuid().ToString().Substring(0, 6), protocolo = Guid.NewGuid().ToString() });
+
+            return response;
+        }
+        public class RespostaObterPartes
+        {
+            public bool success { get; set; }
+            public string status { get; set; }
+            public string messages { get; set; }
+            public Data data { get; set; }
+            public class Data
+            {
+                public List<Parte> partes { get; set; }
+                public class Parte
+                {
+                    public string id { get; set; }
+                    public string protocolo { get; set; }
+
+                    public Parte()
+                    {
+                        id = "";
+                        protocolo = "";
+                    }
+                }
+                public Data()
+                {
+                    partes = new List<Parte>();
+                }
+            }
+
+            public RespostaObterPartes()
+            {
+                success = false;
+                status = "";
+                messages = "";
+                data = new Data();
+            }
+        }
+
+
+        [HttpGet]
+        [Route("assertiva/autentica/v1/jornadas/pedidos/detalhe")]
+        /// <summary>
+        /// Obtém o status da facial
+        /// </summary>
+        /// param name="pedidoID">Pedido ID</param>
+        public RespostaVerificacaoFacial VerificacaoFacial(string pedidoID)
+        {
+            var response = new RespostaVerificacaoFacial();
+
+            response.success = true;
+            response.status = "200";
+            //response.data.partes.Add(new RespostaVerificacaoFacial.Data.Parte() { id = Guid.NewGuid().ToString().Substring(0, 6), protocolo = Guid.NewGuid().ToString(),status = "APROVADO" });
+
+            return response;
+        }
+        public class RespostaVerificacaoFacial
+        {
+            public bool success { get; set; }
+            public string status { get; set; }
+            public string messages { get; set; }
+            public DataRespostaVerificacaoFacial data { get; set; }
+            public class DataRespostaVerificacaoFacial
+            {
+                public List<ParteRespostaVerificacaoFacial> partes { get; set; }
+                public class ParteRespostaVerificacaoFacial
+                {
+                    public string id { get; set; }
+                    public string protocolo { get; set; }
+                    public string status { get; set; }
+                    public ParteRespostaVerificacaoFacial()
+                    {
+                        id = "";
+                        protocolo = "";
+                        status = "";
+                    }
+                }
+                public DataRespostaVerificacaoFacial()
+                {
+                    partes = new List<ParteRespostaVerificacaoFacial>();
+                }
+            }
+
+            public RespostaVerificacaoFacial()
+            {
+                success = false;
+                status = "";
+                messages = "";
+                data = new DataRespostaVerificacaoFacial();
+            }
+        }
+      
 
     }
 }
