@@ -42,7 +42,7 @@ namespace ApiMockup.Models
             public string? SSOLICITANTE { get; set; }
 
             [XmlElement(ElementName = "S-CPF")]
-            public double? SCPF { get; set; }
+            public string? SCPF { get; set; }
 
             [XmlElement(ElementName = "S-DDD-1")]
             public int? SDDD1 { get; set; }
@@ -163,15 +163,38 @@ namespace ApiMockup.Models
         [XmlRoot(ElementName = "DEBITOS")]
         public class DEBITOS
         {
-
             [XmlElement(ElementName = "TAMANHOREGISTRO")]
             public int? TAMANHOREGISTRO { get; set; }
-
             [XmlElement(ElementName = "TIPOREGISTRO")]
             public int? TIPOREGISTRO { get; set; }
-
             [XmlElement(ElementName = "REGISTRO")]
             public string? REGISTRO { get; set; }
+            [XmlElement(ElementName = "TIPOOCORRENCIA")]
+            public string? TIPOOCORRENCIA { get; set; }
+            [XmlElement(ElementName = "CONTRATO")]
+            public string? CONTRATO { get; set; }
+            [XmlElement(ElementName = "DATAOCORRENCIA")]
+            public string? DATAOCORRENCIA { get; set; }
+            [XmlElement(ElementName = "DATADISPONIBILIZACAO")]
+            public string? DATADISPONIBILIZACAO { get; set; }
+            [XmlElement(ElementName = "MOEDA")]
+            public string? MOEDA { get; set; }
+            [XmlElement(ElementName = "VALOR")]
+            public string? VALOR { get; set; }
+            [XmlElement(ElementName = "SITUACAO")]
+            public string? SITUACAO { get; set; }
+            [XmlElement(ElementName = "INFORMANTE")]
+            public string? INFORMANTE { get; set; }
+            [XmlElement(ElementName = "INFORMADOPELOCONSULENTE")]
+            public string? INFORMADOPELOCONSULENTE { get; set; }
+            [XmlElement(ElementName = "CIDADE")]
+            public string? CIDADE { get; set; }
+            [XmlElement(ElementName = "UF")]
+            public string? UF { get; set; }
+            [XmlElement(ElementName = "CONDICAO")]
+            public string? CONDICAO { get; set; }
+            [XmlElement(ElementName = "CONDICAOMUNICIPIO")]
+            public string? CONDICAOMUNICIPIO { get; set; }
         }
 
         [XmlRoot(ElementName = "TITULOS-PROTESTADOS")]
